@@ -1,0 +1,16 @@
+Fitter Status : Failed - Mon Jun 08 18:36:15 2026
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Revision Name : cam_dsp_vga
+Top-level Entity Name : top_vga
+Family : Cyclone IV E
+Device : EP4CE115F29C7
+Timing Models : Final
+Total logic elements : 59
+    Total combinational functions : 58
+    Dedicated logic registers : 33
+Total registers : 33
+Total pins : 28
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

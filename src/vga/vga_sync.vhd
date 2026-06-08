@@ -4,15 +4,15 @@ use ieee.numeric_std.all;
 
 entity vga_sync is
     generic(
-        H_VISIBLE   : integer := 1280;
-        H_FRONT     : integer := 110;
-        H_SYNC      : integer := 40;
-        H_BACK      : integer := 220;
+        H_SYNC      : integer := 96;
+        H_BACK      : integer := 48;
+        H_VISIBLE   : integer := 640;
+        H_FRONT     : integer := 16;
 
-        V_VISIBLE   : integer := 720;
-        V_FRONT     : integer := 5;
-        V_SYNC      : integer := 5;
-        V_BACK      : integer := 20
+        V_SYNC      : integer := 2;
+        V_BACK      : integer := 33;
+        V_VISIBLE   : integer := 480;
+        V_FRONT     : integer := 10
     );
     port (
         clk         : in std_logic;
@@ -21,8 +21,8 @@ entity vga_sync is
         hsync_o     : out std_logic;
         vsync_o     : out std_logic;
 
-        hpos_o      : out std_logic_vector (11 downto 0);
-        vpos_o      : out std_logic_vector (11 downto 0);
+        hpos_o      : out integer;
+        vpos_o      : out integer;
         
         active_o    : out std_logic
     );
@@ -39,15 +39,18 @@ architecture rtl_vga_sync of vga_sync is
 
     
 begin
-    hsync_o <= '0' when (h_cnt >= H_VISIBLE + H_FRONT) and 
-                (h_cnt < H_VISIBLE + H_FRONT + H_SYNC) else '1';
-    vsync_o <= '0' when (v_cnt >= V_VISIBLE + V_FRONT) and 
-                (v_cnt < V_VISIBLE + V_FRONT + V_SYNC) else '1';
+    hsync_o  <= '0' when (h_cnt < H_SYNC) else '1';
+    vsync_o  <= '0' when (v_cnt < V_SYNC) else '1';
 
-    active_o <= '1' when (h_cnt < H_VISIBLE) and (v_cnt < V_VISIBLE) else '0';
+    active_o <= '1' when ((h_cnt >= H_SYNC + H_BACK) and
+                    (h_cnt < H_SYNC + H_BACK + H_VISIBLE) and
+                    (v_cnt >= V_SYNC + V_BACK) and
+                    (v_cnt < V_SYNC + V_BACK + V_VISIBLE)) else '0';
                         
-    hpos_o <= std_logic_vector(to_unsigned(h_cnt, 12));
-    vpos_o <= std_logic_vector(to_unsigned(v_cnt, 12));
+    hpos_o  <= (h_cnt - (H_SYNC + H_BACK)) 
+            when active_o = '1' else 0;
+    vpos_o  <= (v_cnt - (V_SYNC + V_BACK)) 
+            when active_o = '1' else 0;
 
     process(clk)
     begin
@@ -56,15 +59,15 @@ begin
                 h_cnt <= 0;
                 v_cnt <= 0;
             else 
-                if (v_cnt = V_TOTAL-1) then
-                    v_cnt <= 0;
-                else 
-                    if (h_cnt = H_TOTAL-1) then
+                if h_cnt = H_TOTAL - 1 then
+                    h_cnt <= 0;
+                    if v_cnt = V_TOTAL - 1 then
+                        v_cnt <= 0;
+                    else
                         v_cnt <= v_cnt + 1;
-                        h_cnt <= 0;
-                    else 
-                        h_cnt <= h_cnt + 1;
                     end if;
+                else
+                    h_cnt <= h_cnt + 1;
                 end if;
             end if;
         end if;       
