@@ -4,37 +4,35 @@ use ieee.numeric_std.all;
 
 entity vga_output is 
     generic(
-        PIXEL_WIDTH : integer := 8;
-        ADDR_WIDTH  : integer := 19;
+        PIXEL_WIDTH     : integer := 8;
+        ADDR_WIDTH      : integer := 19;
 
-        H_RES       : integer := 640;
-        V_RES       : integer := 480;
+        H_RES           : integer := 640;
+        V_RES           : integer := 480;
 
-        TEST_MODE   : boolean := true
+        TEST_MODE       : boolean := true
     );
     port(
-        clk         : in std_logic;
-        rst         : in std_logic;
+        clk             : in std_logic;
+        rst             : in std_logic;
 
-        hpos_i : in integer;
-        vpos_i : in integer;
+        hpos_i          : in integer;
+        vpos_i          : in integer;
         
-        hsync_i     : in std_logic;
-        vsync_i     : in std_logic;
+        hsync_i         : in std_logic;
+        vsync_i         : in std_logic;
 
-        active_i    : in std_logic;
+        active_i        : in std_logic;
         
-        rd_data_i   : in std_logic_vector(PIXEL_WIDTH - 1 downto 0);
+        fifo_rdreq_o    : out std_logic;
+        fifo_q_i        : in  std_logic_vector(PIXEL_WIDTH-1 downto 0);
 
-        rd_addr_o   : out std_logic_vector(ADDR_WIDTH - 1 downto 0);
-        rd_en_o     : out std_logic;
+        vga_hsync_o     : out std_logic;
+        vga_vsync_o     : out std_logic;
 
-        vga_hsync_o : out std_logic;
-        vga_vsync_o : out std_logic;
-
-        vga_r : out std_logic_vector(PIXEL_WIDTH-1 downto 0);
-        vga_g : out std_logic_vector(PIXEL_WIDTH-1 downto 0);
-        vga_b : out std_logic_vector(PIXEL_WIDTH-1 downto 0)
+        vga_r           : out std_logic_vector(PIXEL_WIDTH-1 downto 0);
+        vga_g           : out std_logic_vector(PIXEL_WIDTH-1 downto 0);
+        vga_b           : out std_logic_vector(PIXEL_WIDTH-1 downto 0)
     );
 end vga_output;
 
@@ -46,10 +44,7 @@ architecture rtl_vga_out of vga_output is
 
 begin
 
-    rd_addr_o <= std_logic_vector(to_unsigned(vpos_i * H_RES + hpos_i, ADDR_WIDTH)) 
-                when active_i = '1' else (others => '0');
-
-    rd_en_o <= '1' when active_i = '1' else '0';
+    fifo_rdreq_o <= active_i;   
 
     process (clk) 
     begin
@@ -58,42 +53,18 @@ begin
                 hsync_dly   <= '0';
                 vsync_dly   <= '0';
                 active_dly  <= '0';
-                rgb_dly     <= (others => '0');
             else 
                 hsync_dly   <= hsync_i;
                 vsync_dly   <= vsync_i;
                 active_dly  <= active_i;
-                rgb_dly     <= std_logic_vector(to_unsigned(hpos_i, PIXEL_WIDTH));
             end if;
         end if;    
     end process;
 
-    process (rd_data_i, active_dly, hsync_dly, vsync_dly, rgb_dly)
-    begin
-        vga_hsync_o <= hsync_dly;
-        vga_vsync_o <= vsync_dly;
-
-        if TEST_MODE then
-            if active_dly = '1' then
-                vga_r <= rgb_dly;
-                vga_g <= rgb_dly;
-                vga_b <= rgb_dly;
-            else
-                vga_r <= (others => '0');
-                vga_g <= (others => '0');
-                vga_b <= (others => '0');
-            end if;
-        else
-            if active_dly = '1' then
-                vga_r <= rd_data_i;
-                vga_g <= rd_data_i;
-                vga_b <= rd_data_i;
-            else
-                vga_r <= (others => '0');
-                vga_g <= (others => '0');
-                vga_b <= (others => '0');
-            end if;
-        end if;
-    end process;
+    vga_hsync_o <= hsync_dly;
+    vga_vsync_o <= vsync_dly;
+    vga_r <= fifo_q_i when active_dly = '1' else (others => '0');
+    vga_g <= fifo_q_i when active_dly = '1' else (others => '0');
+    vga_b <= fifo_q_i when active_dly = '1' else (others => '0');
 
 end rtl_vga_out;

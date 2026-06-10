@@ -71,6 +71,5 @@ begin
                 end if;
             end if;
         end if;       
-    end process;
-    
+    end process; 
 end architecture rtl_vga_sync;

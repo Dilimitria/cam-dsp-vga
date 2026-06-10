@@ -108,7 +108,87 @@
 					"strict" : false
 				},
 				{
+					"name" : "led_full",
+					"strict" : false
+				},
+				{
+					"name" : "led_empty",
+					"strict" : false
+				},
+				{
+					"name" : "cam_sclk",
+					"strict" : false
+				},
+				{
+					"name" : "cam_reset",
+					"strict" : false
+				},
+				{
+					"name" : "cam_sdata",
+					"strict" : false
+				},
+				{
 					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "cam_line_val",
+					"strict" : false
+				},
+				{
+					"name" : "cam_frame_val",
+					"strict" : false
+				},
+				{
+					"name" : "cam_pix_clk",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data[4]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data[5]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data[6]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data[7]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data[8]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data[9]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data[10]",
+					"strict" : false
+				},
+				{
+					"name" : "cam_data[11]",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
 					"strict" : false
 				}
 			]
