@@ -1,5 +1,5 @@
 Assembler report for cam_dsp_vga
-Tue Jun 09 19:19:24 2026
+Thu Jun 18 18:17:35 2026
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Jun 09 19:19:24 2026 ;
+; Assembler Status      ; Successful - Thu Jun 18 18:17:35 2026 ;
 ; Revision Name         ; cam_dsp_vga                           ;
 ; Top-level Entity Name ; top_project                           ;
 ; Family                ; Cyclone IV E                          ;
@@ -77,8 +77,8 @@ refer to the applicable agreement for further details.
 +----------------+---------------------------------------------------------------------+
 ; Option         ; Setting                                                             ;
 +----------------+---------------------------------------------------------------------+
-; JTAG usercode  ; 0x0075F5E3                                                          ;
-; Checksum       ; 0x0075F5E3                                                          ;
+; JTAG usercode  ; 0x008E0D72                                                          ;
+; Checksum       ; 0x008E0D72                                                          ;
 +----------------+---------------------------------------------------------------------+
 
 
@@ -88,14 +88,14 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Jun 09 19:19:20 2026
+    Info: Processing started: Thu Jun 18 18:17:31 2026
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off cam_dsp_vga -c cam_dsp_vga
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4709 megabytes
-    Info: Processing ended: Tue Jun 09 19:19:24 2026
+    Info: Peak virtual memory: 4710 megabytes
+    Info: Processing ended: Thu Jun 18 18:17:35 2026
     Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:04
 

@@ -2,64 +2,184 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1200mV 85C Model Setup 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -3.526
+TNS   : -3.526
+
+Type  : Slow 1200mV 85C Model Setup 'cam_pix_clk'
+Slack : -2.706
+TNS   : -2.706
+
+Type  : Slow 1200mV 85C Model Setup 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 4.699
+TNS   : 0.000
+
 Type  : Slow 1200mV 85C Model Setup 'altera_reserved_tck'
-Slack : 39.929
+Slack : 39.148
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.343
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'cam_pix_clk'
+Slack : 0.386
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 0.402
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'altera_reserved_tck'
-Slack : 0.392
+Slack : 0.403
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'altera_reserved_tck'
-Slack : 93.648
+Slack : 94.504
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'altera_reserved_tck'
-Slack : 1.198
+Slack : 1.149
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 4.916
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_fpga'
+Slack : 9.819
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 20.542
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cam_pix_clk'
+Slack : 47.276
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.567
+Slack : 49.558
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -3.150
+TNS   : -3.150
+
+Type  : Slow 1200mV 0C Model Setup 'cam_pix_clk'
+Slack : -2.609
+TNS   : -2.609
+
+Type  : Slow 1200mV 0C Model Setup 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 5.246
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'altera_reserved_tck'
-Slack : 40.902
+Slack : 40.058
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.349
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 0.353
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'altera_reserved_tck'
 Slack : 0.354
 TNS   : 0.000
 
+Type  : Slow 1200mV 0C Model Hold 'cam_pix_clk'
+Slack : 0.358
+TNS   : 0.000
+
 Type  : Slow 1200mV 0C Model Recovery 'altera_reserved_tck'
-Slack : 94.227
+Slack : 95.053
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'altera_reserved_tck'
-Slack : 1.101
+Slack : 1.050
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 4.917
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_fpga'
+Slack : 9.799
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 20.543
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cam_pix_clk'
+Slack : 47.452
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.488
+Slack : 49.485
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -1.762
+TNS   : -1.762
+
+Type  : Fast 1200mV 0C Model Setup 'cam_pix_clk'
+Slack : -1.571
+TNS   : -1.571
+
+Type  : Fast 1200mV 0C Model Setup 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 7.567
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'altera_reserved_tck'
-Slack : 45.069
+Slack : 44.459
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.140
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 0.181
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'altera_reserved_tck'
-Slack : 0.169
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'cam_pix_clk'
+Slack : 0.185
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'altera_reserved_tck'
-Slack : 96.494
+Slack : 97.020
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'altera_reserved_tck'
-Slack : 0.556
+Slack : 0.551
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[1]'
+Slack : 4.988
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_fpga'
+Slack : 9.400
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'PLL_CAM_inst|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 20.585
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cam_pix_clk'
+Slack : 46.854
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'altera_reserved_tck'
-Slack : 49.456
+Slack : 49.454
 TNS   : 0.000
 
 ------------------------------------------------------------

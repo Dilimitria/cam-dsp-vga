@@ -24,7 +24,9 @@ entity vga_sync is
         hpos_o      : out integer;
         vpos_o      : out integer;
         
-        active_o    : out std_logic
+        active_o    : out std_logic;
+
+        frame_end_o : out std_logic
     );
 end vga_sync;
 
@@ -34,19 +36,19 @@ architecture rtl_vga_sync of vga_sync is
     constant V_TOTAL  : integer := V_VISIBLE + V_FRONT + V_SYNC + V_BACK;
     constant H_TOTAL  : integer := H_VISIBLE + H_FRONT + H_SYNC + H_BACK;
 
-    signal h_cnt : integer range 0 to H_TOTAL-1;
-    signal v_cnt : integer range 0 to V_TOTAL-1;
+    signal h_cnt : integer range 0 to H_TOTAL - 1;
+    signal v_cnt : integer range 0 to V_TOTAL - 1;
 
     
 begin
     hsync_o  <= '0' when (h_cnt < H_SYNC) else '1';
     vsync_o  <= '0' when (v_cnt < V_SYNC) else '1';
 
-    active_o <= '1' when ((h_cnt >= H_SYNC + H_BACK) and
-                    (h_cnt < H_SYNC + H_BACK + H_VISIBLE) and
+    active_o <= '1' when (h_cnt >= H_SYNC + H_BACK) and
+                    (h_cnt < H_TOTAL - H_FRONT) and
                     (v_cnt >= V_SYNC + V_BACK) and
-                    (v_cnt < V_SYNC + V_BACK + V_VISIBLE)) else '0';
-                        
+                    (v_cnt < V_TOTAL - V_FRONT) else '0';
+             
     hpos_o  <= (h_cnt - (H_SYNC + H_BACK)) 
             when active_o = '1' else 0;
     vpos_o  <= (v_cnt - (V_SYNC + V_BACK)) 
@@ -56,9 +58,16 @@ begin
     begin
         if rising_edge(clk) then
             if (rst = '1') then
-                h_cnt <= 0;
-                v_cnt <= 0;
+                h_cnt       <= 0;
+                v_cnt       <= 0;
+                frame_end_o <= '0';
             else 
+                if h_cnt = H_TOTAL - 1 and v_cnt = V_TOTAL - 1 then
+                    frame_end_o <= '1';
+                else 
+                    frame_end_o <= '0';
+                end if;
+
                 if h_cnt = H_TOTAL - 1 then
                     h_cnt <= 0;
                     if v_cnt = V_TOTAL - 1 then

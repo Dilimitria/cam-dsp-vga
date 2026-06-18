@@ -1,16 +1,16 @@
-Fitter Status : Successful - Tue Jun 09 19:19:18 2026
+Fitter Status : Successful - Thu Jun 18 18:17:29 2026
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : cam_dsp_vga
 Top-level Entity Name : top_project
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 2,430 / 114,480 ( 2 % )
-    Total combinational functions : 1,603 / 114,480 ( 1 % )
-    Dedicated logic registers : 1,861 / 114,480 ( 2 % )
-Total registers : 1861
-Total pins : 53 / 529 ( 10 % )
+Total logic elements : 2,593 / 114,480 ( 2 % )
+    Total combinational functions : 2,086 / 114,480 ( 2 % )
+    Dedicated logic registers : 1,292 / 114,480 ( 1 % )
+Total registers : 1292
+Total pins : 54 / 529 ( 10 % )
 Total virtual pins : 0
-Total memory bits : 1,135,880 / 3,981,312 ( 29 % )
+Total memory bits : 3,357,720 / 3,981,312 ( 84 % )
 Embedded Multiplier 9-bit elements : 0 / 532 ( 0 % )
 Total PLLs : 1 / 4 ( 25 % )
